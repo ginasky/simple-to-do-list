@@ -1,0 +1,33 @@
+
+<div class="container">
+  <h1>Sample To Do List </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th> Item name </th>
+        <th> Due date </th>
+        <th> Detail info </th>
+        <th> Edit item </th>
+        <th> Delete completed item </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @todos.each do |todo| %>
+      <tr>
+        <td><%= todo.name %></td>
+        <td><%= todo.date %></td>
+        <td><%= link_to 'Detail', todo_path(todo)%></td>
+        <td><%= link_to 'Edit', edit_todo_path(todo)%></td>
+
+        <%if (todo.date  >=  Date.today) %>
+            <td><%= link_to 'Delete', todo_path(todo),
+            method: :delete, data:{ confirm: "Are you sure?" } %></td>
+        <% else %>
+            <td>delete</td>
+        <% end %>
+      <% end %>
+    </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Add New To do', new_todo_path %>
+</div>

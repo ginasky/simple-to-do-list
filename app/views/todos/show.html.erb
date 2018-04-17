@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>To Do List </h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> Item name </th>
+        <th> Due date </th>
+        <th> Detail info </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @todo.name %></td>
+        <td><%= @todo.date %></td>
+        <td><%= @todo.note %></td>
+      </tr>
+    </tbody>
+  </table>
+    <%= link_to 'Back to list', todos_path %>
